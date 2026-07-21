@@ -186,7 +186,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Mangrove Soap\",\n    \"description\": \"Eco-friendly soap made from natural mangrove extracts.\",\n    \"price\": 12.99,\n    \"status\": \"active\"\n}",
+							"raw": "{\n    \"name\": \"Mangrove Soap\",\n    \"description\": \"An eco-friendly soap crafted from sustainably grown mangroves on Dompak Island. Each purchase directly funds rehabilitation efforts and supports local coastal communities.\",\n    \"price\": 12.99,\n    \"status\": \"active\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -229,7 +229,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Mangrove Soap Premium\",\n    \"description\": \"Premium version with added natural oils.\",\n    \"price\": 14.99,\n    \"status\": \"active\"\n}",
+							"raw": "{\n    \"name\": \"Mangrove Soap Premium\",\n    \"description\": \"A premium, all-natural soap infused with organic mangrove extracts. Directly supports sustainable livelihoods for fishermen and protects Dompak Island\\'s biodiversity.\",\n    \"price\": 14.99,\n    \"status\": \"active\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
