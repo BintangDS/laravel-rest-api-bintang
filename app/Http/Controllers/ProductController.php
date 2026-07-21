@@ -34,11 +34,6 @@ class ProductController extends Controller
     // POST /api/products (Admin Only)
     public function store(Request $request)
     {
-        // Check if the user is an admin
-        if ($request->user()->role !== 'admin') {
-            return response()->json(['message' => 'Forbidden. Admin access required.'], 403);
-        }
-
         // Validate the request based on the requirement rules
         $validated = $request->validate([
             'name' => 'required|string',
@@ -55,10 +50,6 @@ class ProductController extends Controller
     // PUT /api/products/{id} (Admin Only)
     public function update(Request $request, $id)
     {
-        if ($request->user()->role !== 'admin') {
-            return response()->json(['message' => 'Forbidden. Admin access required.'], 403);
-        }
-
         $product = Product::find($id);
 
         if (!$product) {
@@ -67,6 +58,7 @@ class ProductController extends Controller
             ], 404);
         }
 
+        // Validate the request based on the requirement rules
         $validated = $request->validate([
             'name' => 'required|string',
             'price' => 'required|numeric|min:0',
@@ -82,10 +74,6 @@ class ProductController extends Controller
     // DELETE /api/products/{id} (Admin Only)
     public function destroy(Request $request, $id)
     {
-        if ($request->user()->role !== 'admin') {
-            return response()->json(['message' => 'Forbidden. Admin access required.'], 403);
-        }
-
         $product = Product::find($id);
 
         if (!$product) {
