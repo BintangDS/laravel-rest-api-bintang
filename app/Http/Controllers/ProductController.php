@@ -4,46 +4,102 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Http\Resources\ProductResource;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // GET /api/products (Public)
     public function index()
     {
-        //
+        $products = Product::all();
+        
+        // ProductResource::collection automatically wraps the array in "data"
+        return ProductResource::collection($products);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // GET /api/products/{id} (Public)
+    public function show($id)
+    {
+        $product = Product::find($id);
+
+        if (!$product) {
+            return response()->json([
+                'message' => 'Product not found'
+            ], 404);
+        }
+
+        return new ProductResource($product);
+    }
+
+    // POST /api/products (Admin Only)
     public function store(Request $request)
     {
-        //
+        // Check if the user is an admin
+        if ($request->user()->role !== 'admin') {
+            return response()->json(['message' => 'Forbidden. Admin access required.'], 403);
+        }
+
+        // Validate the request based on the requirement rules
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            'status' => 'required|in:active,inactive',
+            'description' => 'nullable|string'
+        ]);
+
+        $product = Product::create($validated);
+
+        return new ProductResource($product);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Product $product)
+    // PUT /api/products/{id} (Admin Only)
+    public function update(Request $request, $id)
     {
-        //
+        if ($request->user()->role !== 'admin') {
+            return response()->json(['message' => 'Forbidden. Admin access required.'], 403);
+        }
+
+        $product = Product::find($id);
+
+        if (!$product) {
+            return response()->json([
+                'message' => 'Product not found'
+            ], 404);
+        }
+
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            'status' => 'required|in:active,inactive',
+            'description' => 'nullable|string'
+        ]);
+
+        $product->update($validated);
+
+        return new ProductResource($product);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Product $product)
+    // DELETE /api/products/{id} (Admin Only)
+    public function destroy(Request $request, $id)
     {
-        //
-    }
+        if ($request->user()->role !== 'admin') {
+            return response()->json(['message' => 'Forbidden. Admin access required.'], 403);
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Product $product)
-    {
-        //
+        $product = Product::find($id);
+
+        if (!$product) {
+            return response()->json([
+                'message' => 'Product not found'
+            ], 404);
+        }
+
+        $product->delete();
+
+        return response()->json([
+            'data' => [
+                'message' => 'Product successfully deleted'
+            ]
+        ], 200);
     }
 }
