@@ -229,7 +229,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Mangrove Soap Premium\",\n    \"description\": \"A premium, all-natural soap infused with organic mangrove extracts. Directly supports sustainable livelihoods for fishermen and protects Dompak Island\\'s biodiversity.\",\n    \"price\": 3.48,\n    \"status\": \"active\"\n}",
+							"raw": "{\n    \"name\": \"Mangrove Soap Premium\",\n    \"description\": \"A premium, all-natural soap infused with organic mangrove extracts. Directly supports sustainable livelihoods for fishermen and protects Dompak Island's biodiversity.\",\n    \"price\": 3.48,\n    \"status\": \"active\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
