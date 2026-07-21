@@ -186,7 +186,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Mangrove Soap\",\n    \"description\": \"An eco-friendly soap crafted from sustainably grown mangroves on Dompak Island. Each purchase directly funds rehabilitation efforts and supports local coastal communities.\",\n    \"price\": 2.79,\n    \"status\": \"active\"\n}",
+							"raw": "{\n    \"name\": \"Mangrove Crackers\",\n    \"description\": \"Crispy, savory traditional crackers made from organic mangrove leaves by Tanjung Pakis coastal community. A delicious, eco-friendly snack.\",\n    \"price\": 1.49,\n    \"status\": \"active\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
