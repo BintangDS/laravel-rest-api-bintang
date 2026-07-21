@@ -199,6 +199,9 @@ To manually test the API endpoints and verify role-based security rules using th
    - The total price is automatically calculated based on the updated price to **`5.70`** (2 x $2.85).
 7. **View Orders (Admin Only)**:
    - Open **Orders -> Get All Orders (Admin Only)** and click **Send** to view all customer orders. You will see the default seeded order (ID 1, containing Mangrove Batik) and the new order (ID 2, containing Mangrove Soap).
+8. **View Single Order (Admin Only)**:
+   - Open **Orders -> Get Single Order (Admin Only)** and click **Send**.
+   - This retrieves the detailed profile of the order with `id: 1` (the default seeded Mangrove Batik order).
 
 ### 3. Security & Authorization Checks (Role Protection)
 Verify that middleware permissions prevent unauthorized access:
