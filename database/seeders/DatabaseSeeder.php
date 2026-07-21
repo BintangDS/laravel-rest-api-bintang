@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Product;
+use App\Models\Order;
+use App\Models\OrderItem;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -71,6 +73,22 @@ class DatabaseSeeder extends Seeder
             'price' => 8.39,
             'status' => 'active',
             'description' => 'A comprehensive climate action package including a single mangrove planting, seagrass restoration support, and economic empowerment for local coastal farmers.',
+        ]);
+
+        // Seed a default pending order for testing
+        $order = Order::create([
+            'customer_name' => 'Budi Customer',
+            'customer_email' => 'budi@mail.com',
+            'status' => 'pending',
+            'total_price' => 15.00,
+        ]);
+
+        OrderItem::create([
+            'order_id' => $order->id,
+            'product_id' => 3, // Mangrove Batik (price 15.00)
+            'qty' => 1,
+            'price' => 15.00,
+            'subtotal' => 15.00,
         ]);
     }
 }
