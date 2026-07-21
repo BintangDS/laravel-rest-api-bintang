@@ -186,7 +186,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Premium Eco Mug\",\n    \"description\": \"Made of organic bamboo fibers.\",\n    \"price\": 12.99,\n    \"status\": \"active\"\n}",
+							"raw": "{\n    \"name\": \"Mangrove Soap\",\n    \"description\": \"Eco-friendly soap made from natural mangrove extracts.\",\n    \"price\": 12.99,\n    \"status\": \"active\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -229,7 +229,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Premium Bamboo Eco Mug\",\n    \"description\": \"Upgraded version made of organic bamboo.\",\n    \"price\": 14.99,\n    \"status\": \"active\"\n}",
+							"raw": "{\n    \"name\": \"Mangrove Soap Premium\",\n    \"description\": \"Premium version with added natural oils.\",\n    \"price\": 14.99,\n    \"status\": \"active\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
